@@ -178,7 +178,7 @@ abstract class DbCube extends Cube
      *
      * @return \Zend_Db_Select
      */
-    protected function fullQuery()
+    public function fullQuery()
     {
         if ($this->fullQuery === null) {
             $this->fullQuery = $this->prepareFullQuery();
