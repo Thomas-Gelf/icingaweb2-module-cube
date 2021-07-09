@@ -63,7 +63,7 @@ class CustomVarDimension implements Dimension
      */
     public function getName()
     {
-        return strtolower($this->varName);
+        return $this->varName;
     }
 
     public function getColumnExpression(Cube $cube)

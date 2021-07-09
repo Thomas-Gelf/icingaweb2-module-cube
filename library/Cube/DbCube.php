@@ -64,6 +64,8 @@ abstract class DbCube extends Cube
     public function fetchAll()
     {
         $query = $this->fullQuery();
+        $this->db()->getConnection()->setAttribute(\PDO::ATTR_CASE, \PDO::CASE_NATURAL);
+
         return $this->db()->fetchAll($query);
     }
 

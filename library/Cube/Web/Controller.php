@@ -3,6 +3,7 @@
 
 namespace Icinga\Module\Cube\Web;
 
+use Icinga\Module\Cube\DimensionParams;
 use Icinga\Module\Cube\Web\Form\FormLoader;
 use Icinga\Module\Cube\Web\Form\QuickForm;
 use Icinga\Web\Controller as WebController;
@@ -36,9 +37,9 @@ abstract class Controller extends WebController
         ])->activate('details');
 
         $this->cube->chooseFacts(array_keys($this->cube->getAvailableFactColumns()));
-        $dimensions = $this->params->shift('dimensions');
+        $vars = DimensionParams::fromString($this->params->shift('dimensions'))->getDimensions();
         $wantNull = $this->params->shift('wantNull');
-        $vars = preg_split('/,/', $dimensions, -1, PREG_SPLIT_NO_EMPTY);
+
         foreach ($vars as $var) {
             $this->cube->addDimensionByName($var);
             if ($wantNull) {
@@ -51,7 +52,7 @@ abstract class Controller extends WebController
         }
 
         foreach ($this->params->toArray() as $param) {
-            $this->cube->slice($param[0], urldecode($param[1]));
+            $this->cube->slice(rawurldecode($param[0]), rawurldecode($param[1]));
         }
 
         $this->view->title = $this->cube->getSlicesLabel();
@@ -66,9 +67,9 @@ abstract class Controller extends WebController
         $showSettings = $this->params->shift('showSettings');
 
         $this->cube->chooseFacts(array_keys($this->cube->getAvailableFactColumns()));
-        $dimensions = $this->params->shift('dimensions');
+        $vars = DimensionParams::fromString($this->params->shift('dimensions'))->getDimensions();
         $wantNull = $this->params->shift('wantNull');
-        $vars = preg_split('/,/', $dimensions, -1, PREG_SPLIT_NO_EMPTY);
+
         foreach ($vars as $var) {
             $this->cube->addDimensionByName($var);
             if ($wantNull) {
@@ -81,7 +82,7 @@ abstract class Controller extends WebController
         }
 
         foreach ($this->params->toArray() as $param) {
-            $this->cube->slice($param[0], urldecode($param[1]));
+            $this->cube->slice(rawurldecode($param[0]), rawurldecode($param[1]));
         }
 
         $this->view->title = sprintf(

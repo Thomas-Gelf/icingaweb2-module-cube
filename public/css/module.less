@@ -477,3 +477,22 @@ select option[value=""] {
     color: #aaa;
     background-color: white;
 }
+
+button[class^="dimension-control"] {
+  border: none;
+  background: none;
+}
+
+button[class^="dimension-control"]:hover {
+  background-color: #0095bf;
+  border-radius: 2px;
+  color: white;
+}
+
+button[class*="icon-angle-double-down"]:nth-child(2) {
+  margin-left: 29px;
+}
+
+fieldset:last-child > dl > button[class*="icon-angle-double-up"] {
+  margin-right: 29px;
+}

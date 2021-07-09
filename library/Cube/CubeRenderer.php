@@ -179,7 +179,6 @@ abstract class CubeRenderer
         $this->view = $view;
         $this->initialize();
         $htm = $this->beginContainer();
-
         foreach ($this->cube->fetchAll() as $row) {
             $htm .= $this->renderRow($row);
         }
@@ -329,12 +328,10 @@ abstract class CubeRenderer
     {
         $cube = $this->cube;
 
-        $params = array(
-            'dimensions' => implode(
-                ',',
-                array_merge($cube->listDimensions(), $cube->listSlices())
-            )
-        );
+        $dimensions = array_merge($cube->listDimensions(), $cube->listSlices());
+        $params = [
+            'dimensions' => DimensionParams::update($dimensions)->getParams()
+        ];
 
         foreach ($this->cube->listDimensionsUpTo($name) as $dimensionName) {
             $params[$dimensionName] = $row->$dimensionName;
