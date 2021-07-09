@@ -477,3 +477,164 @@ select option[value=""] {
     color: #aaa;
     background-color: white;
 }
+
+// SD CODE
+
+.dimension {
+  font-weight: bolder;
+  color: #4b7;
+}
+.dimension.level0 {
+  color: black;
+}
+
+.dimension.level1,.dimension.level2  {
+  color: #f56;
+  font-size: 1.2em;
+}
+
+.measure, .dimension.level0 > .header-dimension {
+  display: inline-block;
+  padding: 0.30em;
+  width: 10em;
+  height: 10em;
+  margin: 0.5em;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1em;
+  color: white;
+
+  .header {
+    display: flex;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .body {
+    display: inline;
+    border-radius: 0.1em;
+    padding: 0.05em 0.2em;
+    font-size: 3em;
+  }
+
+  .others {
+    display: flex;
+    justify-content: center;
+    line-height: 0.5em;
+    span {
+      margin-left: 0.2em;
+      margin-top: 0.8em;
+      border-radius: 0.1em;
+      padding: 0.05em 0.2em;
+      font-size: 0.3em;
+    }
+    span.ok{
+      background-color: #4b7;
+    }
+    span.warning{
+      background-color: #fa4;
+    }
+    span.warning.handled{
+      background-color: #fc6;
+    }
+    span.critical{
+      background-color: #f56;
+    }
+    span.critical.handled {
+      background-color: #f9a;
+    }
+    span.unknown{
+      background-color: #a4f;
+    }
+    span.unknown.handled{
+      background-color: #c7f;
+    }
+  }
+
+}
+// colors for measure
+.measure.ok {
+  background-color: #4b7;
+}
+.measure.warning{
+  background-color: #fa4;
+}
+.measure.warning.handled{
+  background-color: #fc6;
+}
+.measure.critical{
+  background-color: #f56;
+}
+.measure.critical.handled {
+    background-color: #f9a;
+}
+.measure.unknown{
+  background-color: #a4f;
+}
+.measure.unknown.handled{
+  background-color: #c7f;
+}
+
+
+
+
+.header-dimension {
+  background-color: white;
+  color: #f56;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.dimension.level0 > .header-dimension {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.dimension.level0.critical {
+  border-left: 0.5em #f56 solid;
+}
+.dimension.level0 {
+  border-left: 0.5em white solid;
+}
+
+.dimension.level1 > .header-dimension, .dimension.level2 > .header-dimension {
+ border-bottom: 1px #f56 solid;
+}
+
+.dimension-list {
+  list-style: none;
+}
+
+.cube-settings-btn {
+  text-align:center;
+  border-radius: 3px;
+  -ms-border-radius: 3px;
+  height: 20px;
+  width: 40px;
+  display: inline-block;
+  line-height: 20px;
+}
+
+.cube-settings-btn:hover {
+  background: #0095bf;
+  cursor: pointer;
+  color: white;
+}
+
+.cube-link {
+  flex: 1;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dimension-list li:first-child > div > a:nth-child(2) {
+  margin-left: 40px;
+}
+
+.last-up-arrow {
+  margin-right: 40px;
+}
+
+
+
